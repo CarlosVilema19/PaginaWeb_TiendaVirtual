@@ -11,12 +11,12 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @AutoConfigureAfter(DispatcherServletAutoConfiguration.class)
 public class CustomWebMvcAutoConfig implements WebMvcConfigurer {
 
-@Value("${upload.path}")
-public String uploadDir;
+	@Value("${upload.path}")
+	public String uploadDir;
 
-@Override
-public void addResourceHandlers (ResourceHandlerRegistry registry) {
-String myExternalFilePath = "file:"+uploadDir+"/";
-registry.addResourceHandler ("/pic/**").addResourceLocations(myExternalFilePath);
-}
+	@Override
+	public void addResourceHandlers (ResourceHandlerRegistry registry) {
+			String myExternalFilePath = "file:"+uploadDir+"/";
+			registry.addResourceHandler ("/pic/**").addResourceLocations(myExternalFilePath);
+	}
 }
